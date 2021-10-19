@@ -7,10 +7,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ProductDAO {
-	private String url="jdbc:oracle:thin:@127.0.0.1:1521:xe";
-	private String username="scott";
-	private String password="tiger";
+import javax.sql.DataSource;
+
+public class ProductDAO {ㅡ 
+	//DBCP를 이용하므로 아래 변수는 필요없어서 주석처리
+//	private String url="jdbc:oracle:thin:@127.0.0.1:1521:xe";
+//	private String username="scott";
+//	private String password="tiger";
+	private DataSource dataSource;
 	private static ProductDAO instance=new ProductDAO();
 	private ProductDAO() {}
 	public static ProductDAO getInstance() {

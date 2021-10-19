@@ -13,8 +13,9 @@ public class HandlerMapping {
 		//팩키지명을 받아온다
 		String packageInfo=this.getClass().getPackage().getName();
 		//클래스명을 팩키지명에 추가한다
-		String classInfo=new StringBuilder(packageInfo).append(".").append(command).toString();
+		String classInfo=new StringBuilder(packageInfo).append(".").append(command).toString(); 
 		//동적으로 컨트롤러 객체를 생성해 FrontControllerServlet으로 리턴한다 
+
 		return (Controller) Class.forName(classInfo).newInstance();
 	}
 }

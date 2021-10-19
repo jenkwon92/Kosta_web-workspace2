@@ -773,7 +773,7 @@ client1--     FrontControllerServlet --  FindCarByNoController : execute()
  	예 2)   링크를 이용한 요청시 
  	<a href="FrontControllerServlet?command=FindCustomerByIdController&id=java">...</a>
  	
-***********************************************
+ ***********************************************
 webstudy23- date
 
 	MVC + Front Controller Design Pattern 상에서 Database 의 date형을 이용
@@ -781,6 +781,14 @@ webstudy23- date
 	
 	링크 부여시에 컨트롤러 url과 query string 이용해서 상품 상세 컨트롤러로 동작되도록 명시
 	<a href="FindProductByIdController.do?productId=<%=list.get(i).getId()%>"><%=list.get(i).getName()%>		 												
+ 		 												
+ 		 												
+*************************************************************** 		 												
+ webstudy24-DBCP
+ 
+ DBCP :  DataBase Connection Pool							
+ 		 	데이터베이스 연동시 컨넥션 객체를 미리 생성해 놓고 빌려주고 반납받는 형식으로 시스템 성능을 향상시키기 위한 기술 
+  		 												
  		 												
  		 												
  		 												
