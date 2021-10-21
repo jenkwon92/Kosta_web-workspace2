@@ -12,9 +12,8 @@ public class AllProductListController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ArrayList<ProductVO> list =  ProductDAO.getInstance().getAllProductList();
-		
-		request.setAttribute("list", list);
+		ArrayList<ProductVO> list=ProductDAO.getInstance().getAllProductList();
+		request.setAttribute("productList", list);
 		return "product-list.jsp";
 	}
 

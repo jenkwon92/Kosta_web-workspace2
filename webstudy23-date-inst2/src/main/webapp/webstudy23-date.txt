@@ -773,14 +773,16 @@ client1--     FrontControllerServlet --  FindCarByNoController : execute()
  	예 2)   링크를 이용한 요청시 
  	<a href="FrontControllerServlet?command=FindCustomerByIdController&id=java">...</a>
  	
-***********************************************
-webstudy23- date
-
-	MVC + Front Controller Design Pattern 상에서 Database 의 date형을 이용
-	SQL 함수  : to_char()와 to_date() 함수를 학습하고 적용
-	
-	링크 부여시에 컨트롤러 url과 query string 이용해서 상품 상세 컨트롤러로 동작되도록 명시
-	<a href="FindProductByIdController.do?productId=<%=list.get(i).getId()%>"><%=list.get(i).getName()%>		 												
+ 	***************************************
+ 	webstudy23-date
+ 	
+ 	MVC + Front Controller Design Pattern 상에서 Database 의 date 형을 이용 
+ 	SQL 함수 :  to_char() 와 to_date() 함수를 학습하고 적용 
+ 	
+ 	링크 부여시에 컨트롤러url 과 query string 이용해서 상품 상세 컨트롤러로 동작되도록 명시 
+ 	<a href="FindProductByIdController.do?productId=<%=list.get(i).getId()%>"><%=list.get(i).getName()%></a>
+ 	
+ 		 												
  		 												
  		 												
  		 												

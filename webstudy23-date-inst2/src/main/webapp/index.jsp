@@ -18,7 +18,7 @@
 <!-- <form action="TestController.do" method="post">
 	<button type="submit">테스트</button>
 </form> -->
-<h3>MVC + Front Controller Design Pattern 상에 db date형 연습</h3>
+<h3>MVC + Front Controller Design Pattern 상에서 db date형 연습</h3>
 
 <%--
 		index.jsp -- FrontControllerServlet -- HandlerMapping -- FindProductByIdController -- ProductDAO		      ----- Database 
@@ -34,16 +34,14 @@
 <button type="submit">검색</button>
 </form>
 <br><br>
-
 <%--
-		index.jsp -- FrontControllerServlet -- HandlerMapping -- RegisterProductController -- ProductDAO ----- Database 
-																											registerProduct (ProductVO)
-								|
-								| redirect
-						register-result.jsp
-						 																	   
+		index.jsp -- FrontControllerServlet -- HandlerMapping -- RegisterProductController -- ProductDAO		---     DB 
+																											 registerProduct(ProductVO) 
+							| redirect 
+							|  
+						register-result.jsp 																					  
  --%>
-<form action="RegisterProductController.do">
+<form action="RegisterProductController.do" method="post">
 <input type="text" name="name" placeholder="상품명" required="required"><br>
 <input type="text" name="maker" placeholder="제조사" required="required"><br>
 <input type="number" name="price" placeholder="가격" required="required"><br>
@@ -51,15 +49,14 @@
 </form>
 <br><br>
 <%--
-		index.jsp -- FrontControllerServlet -- HandlerMapping -- AllProductListController -- ProductDAO ----- Database 
-																																getAllProductList():  ArrayList<ProductVO>
-								|
-								| forward
-						product-list.jsp
-						(상품리스크 제공 :  상품명, 제조사,등록연월일 --> 상품아이디 내림차순)
-						
-						product-date.sql에서 select sql구문을 테스트 한 후 Model(DAO) ->Controller->View순으로 개발한다
-						 																	   
+			index.jsp  --- FrontControllerServlet -- HandlerMapping -- AllProductListController -- ProductDAO 
+																												  getAllProductList() : ArrayList<ProductVO>
+									| forward 
+									| 
+							    product-list.jsp 						
+							    ( 상품리스트 제공 :  상품명,제조사,등록연월일 --> 상품아이디 내림차순 ) 		
+							    
+							    product-date.sql에서 select sql 구문을 테스트 한 후 Model(DAO) -> Controller -> View 순으로 개발한다 											  
  --%>
 <a href="AllProductListController.do">상품리스트</a>
 </body>

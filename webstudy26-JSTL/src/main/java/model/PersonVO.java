@@ -3,9 +3,17 @@ package model;
 public class PersonVO {
 	private String name;
 	private int age;
+	private CarVO carVO; // has a relationship (aggregation)
 
 	public PersonVO() {
 		super();
+	}
+
+	public PersonVO(String name, int age, CarVO carVO) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.carVO = carVO;
 	}
 
 	public PersonVO(String name, int age) {
@@ -28,6 +36,14 @@ public class PersonVO {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public CarVO getCarVO() {
+		return carVO;
+	}
+
+	public void setCarVO(CarVO carVO) {
+		this.carVO = carVO;
 	}
 
 }

@@ -23,7 +23,6 @@ public class FrontControllerServlet extends HttpServlet {
 			throws ServletException, IOException {
 		try {		
 		String uri=request.getRequestURI();
-		//System.out.println(request.getRequestURI());
 		String command=uri.substring(request.getContextPath().length()+1, uri.length()-3);
 		Controller controller=HandlerMapping.getInstance().create(command);
 		String path=controller.execute(request, response);

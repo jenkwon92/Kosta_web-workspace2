@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>findbyid-fail</title>
 </head>
 <body>
 <script type="text/javascript">
-alert("존재하지않습니다");
-location.href="index.jsp";
+	alert("<%=request.getParameter("productId")%>아이디에 대한 상품정보가 없습니다");
+	location.href="index.jsp";
 </script>
 </body>
 </html>
