@@ -38,8 +38,12 @@
 			}
 		}
 	</script>
+	<a href=""></a>
+	<form action="">
+	
+	</form>
 <form action="FrontControllerServlet" method="post" onsubmit="return checkRegForm()">
-<input type="hidden" name="command" value="RegisterMemberController">
+<input type="hidden" name="command" value="RegisterMemberController"> 
 <input type="text" name="id" id="id" required="required" placeholder="아이디">	
 <%-- 클라이언트가 아이디 중복확인 작업을 수행했는지 여부를 저장하는 용도로 hidden을 이용한다 --%>
 <input type="hidden" id="flag" value=""> 
