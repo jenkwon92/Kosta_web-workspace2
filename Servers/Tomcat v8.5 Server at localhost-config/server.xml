@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="webstudy25-EL" path="/webstudy25-EL" reloadable="true" source="org.eclipse.jst.jee.server:webstudy25-EL"/><Context docBase="webstudy26-JSTL" path="/webstudy26-JSTL" reloadable="true" source="org.eclipse.jst.jee.server:webstudy26-JSTL"/><Context docBase="webstudy27-jstl-member" path="/webstudy27-jstl-member" reloadable="true" source="org.eclipse.jst.jee.server:webstudy27-jstl-member"/></Host>
+      <Context docBase="webstudy25-EL" path="/webstudy25-EL" reloadable="true" source="org.eclipse.jst.jee.server:webstudy25-EL"/><Context docBase="webstudy26-JSTL" path="/webstudy26-JSTL" reloadable="true" source="org.eclipse.jst.jee.server:webstudy26-JSTL"/><Context docBase="webstudy27-jstl-member" path="/webstudy27-jstl-member" reloadable="true" source="org.eclipse.jst.jee.server:webstudy27-jstl-member"/><Context docBase="webstudy27-jstl-member-inst1" path="/webstudy27-jstl-member-inst1" reloadable="true" source="org.eclipse.jst.jee.server:webstudy27-jstl-member-inst1"/><Context docBase="webstudy27-jstl-member-inst2" path="/webstudy27-jstl-member-inst2" reloadable="true" source="org.eclipse.jst.jee.server:webstudy27-jstl-member-inst2"/></Host>
     </Engine>
   </Service>
 </Server>
