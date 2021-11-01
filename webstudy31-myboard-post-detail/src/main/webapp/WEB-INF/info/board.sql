@@ -28,9 +28,15 @@ commit
 
 select * from board;
 
-SELECT no,title,content,time_posted,id FROM board;
+--게시물 리스트 조회 (no,title, writer(member의 name) ,content,time_posted,hits)
+--writer는 회원명을 의미, board table과 board_member table을 조인(inner join)
 
+SELECT b.no, b.title, m.name, to_char(b.time_posted,'YYYY.MM.DD'), b.hits
+FROM board b , board_member m
+WHERE b.id=m.id
+ORDER BY b.no DESC
 
-
+-- 로그인 sql : id와 password가 일치하지 않으면 정보 조회, 아니면 정보조회가 되지 않는다
+SELECT name FROM board_member WHERE id='java' AND password='a'	;
 
 

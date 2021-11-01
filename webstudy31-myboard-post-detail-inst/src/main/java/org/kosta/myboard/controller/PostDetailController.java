@@ -1,21 +1,22 @@
 package org.kosta.myboard.controller;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.kosta.myboard.model.BoardDAO;
 import org.kosta.myboard.model.PostVO;
 
-public class ListController implements Controller {
+public class PostDetailController implements Controller {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		//template layout 페이지를 이용해 리스트 화면을 제공
-		ArrayList<PostVO> list = BoardDAO.getInstance().getPostingList();
-		request.setAttribute("postList", list);
-		request.setAttribute("url", "board/list.jsp");
+		String no = request.getParameter("no");
+		//조회수를 증가
+		BoardDAO.getInstance().updateHits(no);
+		//상세 게시물 조회
+		PostVO pvo = BoardDAO.getInstance().getPostingByNo(no);
+		request.setAttribute("pvo", pvo);
+		request.setAttribute("url", "board/post-detail.jsp");
 		return "layout.jsp";
 	}
 

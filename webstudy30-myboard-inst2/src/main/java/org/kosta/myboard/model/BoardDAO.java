@@ -31,8 +31,23 @@ public class BoardDAO {
 		closeAll(pstmt, con);
 	}
 	
-	public ArrayList<PostVO> getPostingList(){
-		return null;
+	public ArrayList<PostVO> getPostingList() throws SQLException{
+		ArrayList<PostVO> list = new ArrayList<PostVO>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			con = dataSource.getConnection();
+			StringBuilder sql = new StringBuilder("SELECT no,title,content,hits,time_posted,id FROM board");
+			pstmt = con.prepareStatement(sql.toString());
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new PostVO(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getString(5),new MemberVO(rs.getString(6),null,null)));
+			}
+		}finally {
+			closeAll(rs, pstmt, con);
+		}
+		return list;
 	}
 	public PostVO getPostingByNo(String no) {
 		return null;
