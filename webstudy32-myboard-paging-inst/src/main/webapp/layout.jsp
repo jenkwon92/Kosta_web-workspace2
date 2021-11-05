@@ -31,7 +31,7 @@
 			<div class="col-sm-8 offset-sm-2" align="right">
 			<%-- 컨트롤러에서 request에 할당한 url을 이용해 import 한다 --%>
 			<c:import url="${requestScope.url}"/> 		
-			<%-- <c:import url="board/write.jsp"/> 	 --%>	
+			<%-- <c:import url="board/write.jsp"></c:import> --%>
 			</div>
 		</div>
 		<%-- 메인화면 row div --%>

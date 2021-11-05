@@ -16,14 +16,37 @@
 			<pre><font size="4">${pvo.content }</font></pre>
 		</td>
 	</tr>
-	<%-- 글쓴이가 로그인한 회원이면 하단부에 삭제와 수정버튼을 제공한다  --%>
+	<%-- 글쓴이가 로그인한 회원이면 하단부에 삭제와 수정버튼을 제공한다  
+			게시물의 글쓴이 회원 아이디와 로그인한 회원 (세션에 저장된 ) 아이디가 같으면
+			수정과 삭제버튼을 보여준다
+	--%>
+	<c:if test="${sessionScope.mvo.id==requestScope.pvo.memberVO.id }">
 	<tr>
 	<%--  부트스트랩에서 제공하는 중앙정렬 class : text-center   --%>
 		<td colspan="5" class="text-center">
-			<!-- <button type="button" class="button btn-success">삭제</button>
-			<button type="button" class="button btn-success">수정</button> -->
+		<script type="text/javascript">
+			fucntion deletePost(){
+				if(confirm("삭제하시겠습니까?"))
+					document.getElementById("deleteForm").submit();
+			}
+			
+			function updatePost(){
+				if(confirm("수정하시겠습니까?"))
+					docuement.getElementById("updateForm").submit();
+			}
+		</script>
+		<form action="DeletePostController.do" id="deleteForm" method="post">
+		<%-- post는 hidden /get은 쿼리스트링--%>
+		<input type="hidden" name="no" value="${pvo.no }">
+		</form>
+		<form action="UpdatePostFormController.do" id="updateForm" method="post">
+		<input type="hidden" name="no" value="${pvo.no }">
+		</form>
+			<button type="button" class="button btn-success" onclick="deletePost()">삭제</button>
+			<button type="button" class="button btn-success">수정</button>
 		</td>
 	</tr>
+	</c:if>
 </table>
 
 

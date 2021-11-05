@@ -15,9 +15,9 @@
     </form>
  	</c:when>
  	<c:otherwise>
- 	<a href="ListController.do">홈</a>&nbsp;&nbsp;
+ 	<a href="ListController.do">홈</a>&nbsp;&nbsp; 	
  	<a href="WritePostFormController.do">글쓰기</a>&nbsp;&nbsp;
- 	${sessionScope.mvo.name }님&nbsp;&nbsp;
+ 	${sessionScope.mvo.name}님&nbsp;&nbsp;
  	<script>
  		function logout(){
  			let result=confirm("로그아웃하시겠습니까?");
