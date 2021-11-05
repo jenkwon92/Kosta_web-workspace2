@@ -29,14 +29,13 @@ public class BoardDAO {
 		closeAll(pstmt, con);
 	}
 	/**
-	SELECT b.no,b.title,b.hits,b.time_posted,m.name
-		from (
+	    select	b.no,b.title,b.hits,b.time_posted,m.name
+		from(
 			select row_number() over(order by no desc) as rnum,no,title,hits,
-			to_char(time_posted,'YYYY.MM.DD') as time_posted, id
+			to_char(time_posted,'YYYY.MM.DD') as time_posted,id
 			from board
-		)b, board_member m
-		where b.id=m.id and rnum between 1 and 5	
-
+		) b,board_member m
+		where b.id=m.id and rnum between 1 and 5	 
 	 */
 	public ArrayList<PostVO> getPostingList(PagingBean pagingBean) throws SQLException{
 		ArrayList<PostVO> list=new ArrayList<PostVO>();
@@ -46,14 +45,14 @@ public class BoardDAO {
 		try {
 			con=dataSource.getConnection();//dbcp로부터 컨넥션을 빌려온다
 			StringBuilder sql=new StringBuilder();
-			sql.append("SELECT b.no,b.title,b.hits,b.time_posted,m.name ");
-			sql.append("from ( ");
+			sql.append("select	b.no,b.title,b.hits,b.time_posted,m.name ");
+			sql.append("from( ");
 			sql.append("select row_number() over(order by no desc) as rnum,no,title,hits, ");
-			sql.append("to_char(time_posted,'YYYY.MM.DD') as time_posted, id ");
+			sql.append("to_char(time_posted,'YYYY.MM.DD') as time_posted,id ");
 			sql.append("from board ");
-			sql.append(")b, board_member m ");
-			sql.append("where b.id=m.id and rnum between ? and ? ");
-			sql.append("order by b.no desc ");
+			sql.append(") b,board_member m ");
+			sql.append("where b.id=m.id and rnum between ? and ? ");	
+			sql.append("order by b.no desc");
 			pstmt=con.prepareStatement(sql.toString());
 			pstmt.setInt(1, pagingBean.getStartRowNumber());
 			pstmt.setInt(2, pagingBean.getEndRowNumber());
@@ -156,22 +155,22 @@ public class BoardDAO {
 	}
 	/**
 	 * 총 게시물 수를 조회 <br>
-	 * 페이징 처리를 위해 동작
+	 * 페이징 처리를 위해 동작 
 	 * @return totalPostCount
 	 * @throws SQLException
 	 */
 	public int getTotalPostCount() throws SQLException {
-		int totalPostCount =0;
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		int totalPostCount=0;
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
 		try {
 			con=dataSource.getConnection();
-			String sql ="SELECT COUNT(*) FROM board";
-			pstmt = con.prepareStatement(sql);
+			String sql="select count(*) from board";
+			pstmt=con.prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			if(rs.next())
-				totalPostCount = rs.getInt(1);
+				totalPostCount=rs.getInt(1);
 		}finally {
 			closeAll(rs, pstmt, con);
 		}
