@@ -21,5 +21,4 @@ public class FindMemberByIdController implements Controller {
 		}
 		return path;
 	}
-
 }
