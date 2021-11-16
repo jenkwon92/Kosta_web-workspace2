@@ -25,7 +25,7 @@
 	<%--  부트스트랩에서 제공하는 중앙정렬 class : text-center   --%>
 		<td colspan="5" class="text-center">
 		<script type="text/javascript">
-			fucntion deletePost(){
+			function deletePost(){
 				if(confirm("삭제하시겠습니까?"))
 					document.getElementById("deleteForm").submit();
 			}
